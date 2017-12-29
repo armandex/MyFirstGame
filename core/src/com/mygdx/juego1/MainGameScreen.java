@@ -5,8 +5,10 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.juego1.actors.ActorJugador;
+import com.mygdx.juego1.actors.ActorPinchos;
 
 /**
  * Created by arman on 28/12/2017.
@@ -14,22 +16,30 @@ import com.mygdx.juego1.actors.ActorJugador;
 
 public class MainGameScreen extends BaseScreen {
 
+    private Stage stage;
+    private ActorJugador jugador;
+    private Texture texturaJugador, texturaPinchos;
+    private TextureRegion regionPinchos;
+    private ActorPinchos pinchos;
 
     public MainGameScreen(MainGame game) {
         super(game);
+        texturaJugador = new Texture("android.png");
+        texturaPinchos = new Texture("pinchos_sin_fondo.png");
+        regionPinchos = new TextureRegion(texturaPinchos,0,88,128,40);
     }
 
-    private Stage stage;
-    private ActorJugador jugador;
-    private Texture texturaJugador;
+    ;
+
     @Override
     public void show() {
-         texturaJugador = new Texture("android.png");
         stage = new Stage();
         jugador = new ActorJugador(texturaJugador);
+        pinchos = new ActorPinchos(regionPinchos);
         stage.addActor(jugador);
-
-        jugador.setPosition(20, 100);
+        stage.addActor(pinchos);
+        jugador.setPosition(10, 10);
+        pinchos.setPosition(500,10);
     }
 
     @Override
