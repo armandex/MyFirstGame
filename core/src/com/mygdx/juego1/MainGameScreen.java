@@ -29,11 +29,13 @@ public class MainGameScreen extends BaseScreen {
         regionPinchos = new TextureRegion(texturaPinchos,0,88,128,40);
     }
 
-    ;
+
 
     @Override
     public void show() {
         stage = new Stage();
+        stage.setDebugAll(true);
+
         jugador = new ActorJugador(texturaJugador);
         pinchos = new ActorPinchos(regionPinchos);
         stage.addActor(jugador);

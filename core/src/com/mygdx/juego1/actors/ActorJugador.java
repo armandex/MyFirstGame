@@ -14,6 +14,7 @@ public class ActorJugador extends Actor {
 
     public ActorJugador(Texture jugador){
         this.jugador = jugador;
+        setSize(jugador.getWidth(), jugador.getHeight());
     }
 
     @Override
